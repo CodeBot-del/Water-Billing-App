@@ -8,8 +8,8 @@
                 <div class="card-header">{{ __('Actions') }}</div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <a href="" class="list-group-item list-group-item-action">View</a>
-                        <a href="" class="list-group-item list-group-item-action">Create</a>
+                        <a href="{{route('customer.index')}}" class="list-group-item list-group-item-action">View</a>
+                        <a href="{{route('customer.create')}}" class="list-group-item list-group-item-action">Create</a>
 
                     </ul>
                 </div>
