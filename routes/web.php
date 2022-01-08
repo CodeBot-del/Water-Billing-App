@@ -23,3 +23,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/customer', [App\Http\Controllers\CustomerController::class, 'index'])->name('customer.index');
 Route::get('/customer/create', [App\Http\Controllers\CustomerController::class, 'create'])->name('customer.create');
 Route::post('/customer/store', [App\Http\Controllers\CustomerController::class, 'store'])->name('customer.store');
+Route::get('/customer/{id}/edit', [App\Http\Controllers\CustomerController::class, 'edit'])->name('customer.edit');
+Route::put('/customer/{id}/update', [App\Http\Controllers\CustomerController::class, 'update'])->name('customer.update');
+Route::delete('/customer/{id}/delete', [App\Http\Controllers\CustomerController::class, 'destroy'])->name('customer.destroy');
+
+
