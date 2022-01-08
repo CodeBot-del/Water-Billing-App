@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\CustomerStoreRequest;
+use App\Models\Customer;
 
 class CustomerController extends Controller
 {
@@ -14,7 +15,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return ('List of Customers');
+        return view('customer.index');
     }
 
     /**
@@ -36,6 +37,16 @@ class CustomerController extends Controller
     public function store(CustomerStoreRequest $request)
     {
         //dd($request->all());  //render the requests array on the screen
+        $path = $request->image->store('public/customer');
+        Customer::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'faculty' => $request->faculty,
+            'category' => $request->category,
+            'image' => $path,
+        ]);
+        return redirect()->route('customer.index');
 
     }
 

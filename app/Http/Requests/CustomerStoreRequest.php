@@ -26,7 +26,7 @@ class CustomerStoreRequest extends FormRequest
         return [
             'name' => 'required|string|min:3|max:40',
             'email' => 'required|string|min:3|max:40',
-            'phone' => 'required|number|max:15',
+            'phone' => 'required|numeric',
             'faculty' => 'required|string',
             'category' => 'required|string',
             'image' => 'required|mimes:png,jpeg,jpg'
