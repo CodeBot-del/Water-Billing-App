@@ -19,6 +19,15 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Customers') }}</div>
+                @if(count($errors)>0)
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        <p>{{$error}}</p>
+                    @endforeach
+                </div>
+
+                @endif
+                <form action="{{ route('customer.store')}}" method="post">@csrf
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name of Customer</label>
@@ -34,11 +43,11 @@
                     </div>
                     <div class="form-group">
                         <label for="faculty">Faculty</label>
-                        <input type="number" class="form-control" name="faculty" >
+                        <input type="text" class="form-control" name="faculty" >
                     </div>
                     <div class="form-group">
-                        <label for="phone">Category</label>
-                        <select class="form-control">
+                        <label for="category">Category</label>
+                        <select class="form-control" name="category">
                             <option value=""></option>
                             <option value="student">Student</option>
                             <option value="lecturer">Lecturer</option>
